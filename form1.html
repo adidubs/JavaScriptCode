@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+        
+        <input type="submit" value="Submit">
+      </form>
+      
+<script>
+const form = document.getElementById('myForm');
+const nameInput = document.getElementById('name');
+const dobInput = document.getElementById('dob');
+
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+ 
+  if (nameInput.value === '') {
+    alert('Please enter your name');
+    return false;
+  }
+
+
+  const dobDate = new Date(dobInput.value);
+  const currentDate = new Date();
+  if (dobInput.value === '') {
+    alert('Please enter your date of birth');
+    return false;
+  } else if (dobDate >= currentDate) {
+    alert('Please enter a valid date of birth');
+    return false;
+  }
+
+  alert('Form submitted successfully!');
+  form.submit();
+});
+
+      </script>
+</body>
+</html>
